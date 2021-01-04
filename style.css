@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui;
+}
+.search-bar-parent {
+  background-image: url("./assets/hero-background.jpg");
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 31%);
+}
+.search-bar-parent > h3 {
+  margin-top: 50px;
+  font-size: 30px;
+  color: #fff;
+}
+.super-centered {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.song-list {
+  margin-top: 10px;
+}
+
+.song-list ul {
+  padding: 0;
+}
+
+.search-bar {
+  margin: 20px 0 50px 0;
+  position: relative;
+  width: 450px;
+}
+
+/* Style the search field */
+.search-bar input[type="text"] {
+  height: 40px;
+  width: 100%;
+  padding: 5px 0 5px 20px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+/* Style the submit button */
+.search-bar .search-btn {
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+  padding: 8px;
+  background: #5d6ac4;
+  margin: 5px 6px 5px 0px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+}
+
+.search-bar .clear-btn {
+  position: absolute;
+  right: 65px;
+  padding: 8px;
+  margin: 6px 6px 6px 0px;
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  outline: none;
+  font-size: 6px;
+}
+
+.search-bar button:hover {
+  cursor: pointer;
+}
+
+.song-item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 450px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.song-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.song-item .album-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-item p {
+  font-size: 14px;
+}
+.song-item button {
+  cursor: pointer;
+  background: #5d6ac4;
+  color: #fff;
+  border-radius: 2px;
+  border: none;
+  height: 25px;
+}
+
+.pagination .btn {
+  cursor: pointer;
+  right: 0;
+  font-weight: bold;
+  padding: 10px;
+  background: #5d6ac4;
+  margin: 5px 6px 5px 0px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+}
+.pagination .btn:disabled {
+  cursor: not-allowed;
+  right: 0;
+  font-weight: bold;
+  padding: 10px;
+  background: #cfd0dc;
+  margin: 5px 6px 5px 0px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+}
+.lyrics-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lyrics-block .lyrics {
+  white-space: pre;
+}
+.d-none {
+  display: none;
+}
+.f-18 {
+  font-size: 18px;
+}
