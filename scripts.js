@@ -6,14 +6,19 @@ let responseRender = document.getElementById("response");
 //pagination
 let paginationDiv = document.getElementById("pagination");
 let searchInputBox = document.getElementById("searchQuery");
+// loader spinner
+let loader = document.getElementById("cover-spin");
+// data source
 let songsList = {};
 
 async function searchInput() {
   let searchQuery = searchInputBox.value;
 
+  loader.style.display = "block";
   fetch(`https://api.lyrics.ovh/suggest/${searchQuery}`)
     .then((res) => res.json())
     .then((result) => {
+      loader.style.display = "none";
       // show pagination
       paginationDiv.classList.remove("d-none");
       //disable previous btn
@@ -70,10 +75,13 @@ async function showSuggestions() {
       //get artist & song name
       let artist = item.artist.name;
       let song = item.title;
+
+      loader.style.display = "block";
       //call for lyrics
       fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`)
         .then((res) => res.json())
         .then((result) => {
+          loader.style.display = "none";
           //hide pagination
           paginationDiv.classList.add("d-none");
           //hiding album list
@@ -124,9 +132,12 @@ async function loadNextPage() {
     headers: myHeaders,
     redirect: "follow",
   };
+
+  loader.style.display = "block";
   fetch(nextEndpointUrl, requestOptions)
     .then((response) => response.json())
     .then((result) => {
+      loader.style.display = "none";
       if (result.prev) {
         //enable previous btn
         disableOrEnableBtn("prevBtn", false);
@@ -152,9 +163,12 @@ async function loadPrevPage() {
     headers: myHeaders,
     redirect: "follow",
   };
+
+  loader.style.display = "block";
   fetch(nextEndpointUrl, requestOptions)
     .then((response) => response.json())
     .then((result) => {
+      loader.style.display = "none";
       if (!result.prev) {
         //enable previous btn
         disableOrEnableBtn("prevBtn", true);
