@@ -28,7 +28,10 @@ async function searchInput() {
       //show list
       showSuggestions();
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      loader.style.display = "none";
+      console.log("error", error);
+    });
 }
 
 function nextCall(endpoint) {
@@ -63,10 +66,20 @@ async function showSuggestions() {
     let artistNameBlock = document.createElement("p");
     artistNameBlock.innerHTML = item.artist.name;
 
+    //player
+    let player = document.createElement("audio");
+    player.controls = true;
+    player.src = item.preview;
+
+    let playerBlock = document.createElement("div");
+    playerBlock.className = "player-block";
+    playerBlock.appendChild(artistNameBlock);
+    playerBlock.appendChild(player);
+
     //span
-    let spanHiphen = document.createElement("span");
-    spanHiphen.style.margin = "5px";
-    spanHiphen.innerHTML = " - ";
+    // let spanHiphen = document.createElement("span");
+    // spanHiphen.style.margin = "5px";
+    // spanHiphen.innerHTML = " - ";
 
     let lyricsBtn = document.createElement("button");
     lyricsBtn.innerHTML = "Show Lyrics";
@@ -110,12 +123,15 @@ async function showSuggestions() {
 
           responseRender.appendChild(lyricsBlock);
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          loader.style.display = "none";
+          console.log("error", error);
+        });
     });
 
     albumBlock.appendChild(songName);
-    albumBlock.appendChild(spanHiphen);
-    albumBlock.appendChild(artistNameBlock);
+    // albumBlock.appendChild(spanHiphen);
+    albumBlock.appendChild(playerBlock);
     listItem.appendChild(albumBlock);
     listItem.appendChild(lyricsBtn);
     listContainer.appendChild(listItem);
@@ -150,7 +166,10 @@ async function loadNextPage() {
       songsList = result;
       showSuggestions();
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      loader.style.display = "none";
+      console.log("error", error);
+    });
 }
 
 async function loadPrevPage() {
@@ -177,7 +196,10 @@ async function loadPrevPage() {
       songsList = result;
       showSuggestions();
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      loader.style.display = "none";
+      console.log("error", error);
+    });
 }
 
 function disableOrEnableBtn(id, state) {
