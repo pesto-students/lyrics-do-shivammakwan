@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="super-parent">
+      <div class="super-centered search-bar-parent">
+        <h3>LyricsDo</h3>
+        <div class="search-bar">
+          <input
+            type="search"
+            name="search"
+            id="searchQuery"
+            placeholder="Enter artist or song name..."
+          />
+          <button id="btn" onclick="searchInput()" class="search-btn">
+            Search
+          </button>
+        </div>
+      </div>
+      <div id="response" class="song-list super-centered">
+        <span id="indicator-msg" class="indicator-msg">
+          Results will be displayed here
+        </span>
+      </div>
+
+      <div
+        id="pagination"
+        class="super-centered pagination d-none"
+        style="grid-auto-flow: column"
+      >
+        <button
+          class="btn"
+          title="Previous"
+          id="prevBtn"
+          onclick="loadPrevPage()"
+        >
+          Previous
+        </button>
+        <button
+          class="btn"
+          title="Next"
+          id="nextBtn"
+          onclick="loadNextPage()"
+          style="width: 80px"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+    <div id="cover-spin"></div>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
